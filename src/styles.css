@@ -1,1 +1,150 @@
 /* You can add global styles to this file, and also import other style files */
+#main-side-menu > li > a{
+    font-size: 18px;
+}
+.nav > li > a {
+    color: #282828 !important;
+} 
+.nav > li > a:hover {
+    border-radius: 0 !important;
+} 
+.nav li.active > a {
+    background-color: #FFEA84 !important;
+    border-radius:0 !important;
+    border-left:4px solid #FFD800;
+}
+.nav.topbar li.active > a {
+    padding:13px 20px;
+    border-left:0;
+    border-bottom:4px solid #FFD800;
+}
+.tab{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+.tab, .tab li {
+    flex:1;
+    list-style: none;
+    margin: 0;
+}
+.tab li{
+    display: inline-block;
+}
+.tab li > a{
+    display: block;
+    padding:5px 10px;
+    color: #a6a6a6;
+    text-decoration: none;
+    text-align: center;
+}
+.tab li:not(:last-child) > a{
+    border-right: 1px solid #a6a6a6;
+}
+.tab li.active > a{
+    color: #FFD800;
+    background: #fff;
+}
+
+/*OVERLAY MENU*/
+.overlay-menu {
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+.overlay-menu li > a {
+    display:block;
+    padding:12px 100px 12px 20px;
+    text-decoration: none;
+    color:#262626;
+}
+.overlay-menu li:hover > a {
+    background: rgba(180,180,180,0.6);
+    box-shadow: 0 1px 3px 0 #a0a0a0;
+    border-radius: 3px;
+}
+
+.btn.btn-primary{
+    background-color: #FFD800 !important;
+    border: 1px solid #D8B400 !important;
+    border-radius:0 !important;
+    box-sizing: border-box !important;
+    box-shadow: inset 0 0 1px 0 rgba(0,0,0,0.8);
+    text-shadow: 0 0 2px rgba(0,0,0,0.8);
+}
+
+.btn.btn-primary:active {
+    background-color: #EFC700 !important;
+}
+
+.cover-thumb .navigation{
+    display: none;
+}
+.cover-thumb:hover .navigation, .cover-thumb.active .navigation{
+    display:block;
+}
+.cover-thumb .navigation a {
+    background:rgba(0,0,0,0.4);
+    color:#fff;
+    min-width: 120px;
+}
+.cover-thumb .navigation a:hover {
+    background:rgba(239,199,0,0.6);
+    box-shadow:0 0 1px 0 #FFD800;
+}
+
+.bread-crumb a {
+    text-decoration: none;
+}
+
+/* DIALOG */
+.dialog{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.5);
+    padding:30px;
+    display:none;
+}
+.dialog-window{
+    position:relative;
+    margin:0 auto;
+    background:#fff;
+    border-radius:10px;
+    padding:15px;
+    border:1px solid #808080;
+    box-shadow:1px 1px 10px 0 #000;
+}
+.dialog-header{
+    position:relative;
+    height:60px;
+    border-bottom:2px solid #FFD800; 
+    color:#FFD800;
+    padding:0 15px
+}
+.dialog-title{
+    display:inline-block;
+    height:60px;
+    line-height:60px;
+    font-size:26px;
+}
+.dialog-body{
+    position:absolute;
+    top:66px;
+    left:0px;
+    right:0px;
+    bottom:60px;
+    padding:15px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+.dialog-footer{
+    position: absolute;
+    left:0; 
+    right:0;
+    bottom:0;
+    height:60px;
+    padding:0 15px;
+}

@@ -1,6 +1,6 @@
 {
   "name": "radio-server",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "production": "ng build && node server.js"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +22,14 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "angular-font-awesome": "^2.0.3",
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.1",
+    "font-awesome": "^4.7.0",
+    "mongoose": "^4.12.0",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

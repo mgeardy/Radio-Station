@@ -1,0 +1,31 @@
+<div style='position:relative;height:100%;margin-left:-15px;margin-right:-15px;'>
+  <div style='background:#fff;padding:10px'>
+    <div style="background:#efefef;border-radius:3px;border:1px solid #ccc;padding:4px 15px">
+      <form class="form-inline" action="">
+        <div class="form-group" style='margin-right:10px'>
+          <label for="inputname">Album Name :
+            <input type="text" class="form-control" style="font-weight:normal" id="inputname" name="name" placeholder="Album Name"/>
+          </label>
+        </div>
+        <div class="form-group" style='margin-right:10px;'>
+          <label for="inputimage">Image :
+            <input type="text" class="form-control" style="font-weight:normal" id="inputimage" name="image" placeholder="Image URL"/>
+          </label>
+        </div>
+        <button class='btn btn-primary' style='margin-top:-4px;min-width:90px;'>Add Album</button>
+      </form>
+    </div>
+  </div>
+  <div style='position:relative;height:100%;padding-top:10px;padding-left:10px;overflow-y:auto;'>
+    <div *ngFor="let album of musicService.getAlbums()" style="float:left;margin-right:10px;margin-bottom:10px;width:240px;height:300px;background:#fff;">
+      <div class='cover-thumb' [class.active]="musicService.selectedAlbum != null && album._id == musicService.selectedAlbum._id"
+        style="position:relative;height:240px;background:#fff;border:6px solid rgba(180,180,180,0.5);overflow:hidden;">
+        <img [src]="album.cover == null || album.cover == '' ? '../../assets/images/default_photo.png' : album.cover" alt="" style='width:100%;'>
+        <div class='navigation' style="position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(239,199,0,0.4);color:#fff;padding:4px;padding-top:100px;text-align:center;">
+          <a [routerLink]="['/music/song']" (click)='selected(album)' class='btn btn-default'>Songs<span style='margin-left:30px;font-weight:normal;'><ng-fa name='angle-right'></ng-fa></span></a>
+        </div>
+      </div>
+      <h4>{{ album.title }}</h4>
+    </div>
+  </div>
+</div>

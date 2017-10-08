@@ -1,0 +1,35 @@
+<div style='position:relative;height:100%;padding:0 15px;'>
+  <div style='position:relative;height:60px;border-bottom:2px solid #FFD800; color:#FFD800;padding:0 15px'>
+    <span style='display:inline-block;height:60px;line-height:60px;font-size:26px;'>News</span>
+    <div class='pull-right' style='padding:12px 0'>
+      <button class="btn btn-primary pull-right" onclick="document.getElementById('dialog').style.display='block';"><ng-fa name="plus"></ng-fa> Add News</button>
+    </div>
+  </div>
+
+  <div style='position:absolute;top:66px;left:15px;right:15px;bottom:15px;border:1px solid #ccc'>
+    <div style='position:relative;height:100%;padding-top:10px;padding-left:10px;overflow-y:auto;'>
+      <div *ngFor="let news of newses" style="float:left;margin-right:10px;margin-bottom:10px;width:300px;height:244px;background:#fff;">
+        <div style="height:173px;background:#fff;border:6px solid rgba(180,180,180,0.5);">
+          <img [src]="news.image == null || news.image == '' ? '../../assets/images/default_photo.png' : news.image"
+            alt="" style='width:100%;'>
+        </div>
+        <h4>{{ news.title }}</h4>
+      </div>
+    </div>
+  </div>
+
+  <div id='dialog' class='dialog'>
+    <div class='dialog-window' style="width:80%;height:100%;">
+      <div class='dialog-header'>
+        <span class='dialog-title'>Add News</span>
+        <button class='btn btn-primary btn-xs pull-right' onclick="document.getElementById('dialog').style.display='none';"><ng-fa name="times"></ng-fa></button>
+      </div>
+      <div class='dialog-body'>
+        <app-newscrud></app-newscrud>
+      </div>
+      <div class='dialog-footer'>
+        <button class="btn btn-primary pull-right" style='min-width:120px;' onclick="document.getElementById('dialog').style.display='none';">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

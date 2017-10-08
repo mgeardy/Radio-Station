@@ -1,0 +1,48 @@
+<div class="row" style='height:100%'>
+  <div class="col-sm-8" style='height:100%;padding-top:1px; padding-bottom:2px;padding-right:0px;'>
+    <div style='height:100%;box-shadow:0 0 2px 0 rgba(120,120,120,0.6);overflow-y:auto;padding:15px;'>
+      <form action="/">
+        <div class="form-group" style='position:relative;'>
+          <label for="news_title" style='position:absolute;display:block;padding-top:6px;'>Title</label>
+          <div style='padding-left:90px'>
+            <input type='text' id="news_title" name="news_title" [(ngModel)]="news_title" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group" style='position:relative;'>
+          <label for="news_source" style='position:absolute;display:block;padding-top:6px;'>Source</label>
+          <div style='padding-left:90px'>
+            <input type="text" id="news_source" name="news_source" [(ngModel)]="news_source" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group" style='position:relative;'>
+          <label for="news_url" style='position:absolute;display:block;padding-top:6px;'>News URL</label>
+          <div style='padding-left:90px'>
+            <input type="text" id="news_url" name="news_url" [(ngModel)]="news_url" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group" style='position:relative;'>
+          <label for="news_img" style='position:absolute;display:block;padding-top:6px;'>Image URL</label>
+          <div style='padding-left:90px'>
+            <input type='text' id="news_img" name="news_img" [(ngModel)]="news_img" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="news_short">Short Content</label>
+          <textarea id="news_short" name="news_short" [(ngModel)]="news_short" class="form-control" style="min-height:120px;resize:none"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-4" style='height:100%;padding-top:1px; padding-bottom:2px;padding-left:6px'>
+    <div style='height:100%;box-shadow:0 0 2px 0 rgba(120,120,120,0.6);overflow-y:auto;padding:6px;'>
+      <div style="position:relative;height:16vw;border:1px solid #ccc;background:#efefef;padding:1px">
+        <img *ngIf="news_img != ''" [src]="news_img" alt="news_img" style='display:block;margin:0 auto;max-width:100%;height:100%'>
+      </div>
+      <h3>{{news_title}}</h3>
+      <h5><span *ngIf="news_source != ''">Source:</span> <small style='font-size:1em'>{{news_source}}</small></h5>
+      <div style="text-align: justify">
+        {{news_short}} <a href="news_url" *ngIf="news_short != '' && news_url != ''" style='color:#0028de;display:inline-block;padding:2px 0;margin-left:6px'>Read More</a>
+      </div>
+    </div>
+  </div>
+</div>

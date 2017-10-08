@@ -1,0 +1,51 @@
+<div style='position:relative;height:100%;padding:0 15px;'>
+  <div style='position:relative;height:60px;border-bottom:2px solid #FFD800; color:#FFD800;padding:0 15px'>
+    <span style='display:inline-block;height:60px;line-height:60px;font-size:26px;'>Music</span>
+  </div>
+  <div class='bread-crumb' style='position:absolute;top:66px;left:15px;right:15px;bottom:15px;border:1px solid #ccc'>
+    <div style='background:#ccc;height:30px;padding:4px 6px;overflow:hidden;'>
+      <div style='display:inline-block;padding:1px 5px;background-color:buttonface;border-radius:3px'>
+        <ng-fa name="music"></ng-fa>
+      </div>
+      <a [routerLink]="['/music/nationality']" (click)="setCurrentNav('nationality')" [ngStyle]="isCurrentNav('nationality')">Nationalities
+        <span *ngIf="selectedNationality"> 
+          ({{selectedNationality.name}} 
+          <a [routerLink]="['/music/genre']" (click)="unsetNationality(); setCurrentNav('genre'); stopPropagation($event);" [ngStyle]="isCurrentNav('nationality')"><ng-fa name='times'></ng-fa></a>
+          ) 
+        </span>
+      </a>
+      <ng-fa name='chevron-right'></ng-fa>
+      <a [routerLink]="['/music/genre']" (click)="setCurrentNav('genre')" [ngStyle]="isCurrentNav('genre')">Genres
+        <span *ngIf="selectedGenre"> 
+          ({{selectedGenre.name}} 
+          <a [routerLink]="['/music/artist']" (click)="unsetGenre(); setCurrentNav('artist'); stopPropagation($event);" [ngStyle]="isCurrentNav('genre')"><ng-fa name='times'></ng-fa></a>
+          ) 
+        </span>
+      </a>
+      <ng-fa name='chevron-right'></ng-fa>
+      <a [routerLink]="['/music/artist']" (click)="setCurrentNav('artist')" [ngStyle]="isCurrentNav('artist')">Artists
+        <span *ngIf="selectedArtist"> 
+          ({{selectedArtist.name}} 
+          <a [routerLink]="['/music/album']" (click)="unsetArtist(); setCurrentNav('album'); stopPropagation($event);" [ngStyle]="isCurrentNav('artist')"><ng-fa name='times'></ng-fa></a>
+          ) 
+        </span>
+      </a>
+      <ng-fa name='chevron-right'></ng-fa>
+      <a [routerLink]="['/music/album']" (click)="setCurrentNav('album')" [ngStyle]="isCurrentNav('album')">Albums
+        <span *ngIf="selectedAlbum">
+          ({{selectedAlbum.title}} 
+          <a [routerLink]="['/music/song']" (click)="unsetAlbum(); setCurrentNav('song'); stopPropagation($event);" [ngStyle]="isCurrentNav('album')"><ng-fa name='times'></ng-fa></a>
+          ) 
+        </span>
+      </a>
+      <ng-fa name='chevron-right'></ng-fa>
+      <a [routerLink]="['/music/song']" (click)="setCurrentNav('song')" [ngStyle]="isCurrentNav('song')">Songs</a>
+    </div>
+    <div style='position:absolute;top:30px;left:0px;right:0;bottom:0;box-shadow:0 0 2px 0 rgba(120,120,120,0.6);overflow-y:auto;'>
+      <div class='col-sm-12'>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,49 @@
+<div style='position:relative;height:100%;margin-left:-15px;margin-right:-15px;'>
+  <div style='background:#fff;padding:10px'>
+    <div style="background:#efefef;border-radius:3px;border:1px solid #ccc;padding:4px 15px">
+      <form class="form-inline" action="">
+        <div class="row" style="margin:0">
+          <div class="form-group" style='margin-right:10px'>
+            <label for="inputname"><span style="display:inline-block;width:90px">Artist Name</span> :
+              <input type="text" class="form-control" style="font-weight:normal" id="inputname" name="name" placeholder="Artist Name"/>
+            </label>
+          </div>
+          <div class="form-group" style='margin-right:10px'>
+            <label for="inputimage">Image :
+              <input type="text" class="form-control" style="font-weight:normal" id="inputimage" name="image" placeholder="Image URL"/>
+            </label>
+          </div>
+          <div class="form-group" style='margin-right:10px'>
+            <label for="inputnationality">Nationality :
+              <select id="inputnationality" class="form-control" style='font-weight:normal'>
+                <option value="1">Indonesia</option>
+                <option value="2">English</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="row" style="margin:0">
+          <div class="form-group" style='margin-right:10px'>
+            <label for="inputimage"><span style="display:inline-block;width:90px">Genres</span> :</label>
+            <div style="position:relative;display:inline-block;width:672px">
+              <input type="text" class="form-control" style="font-weight:normal;width:100%;" id="inputimage" name="image" placeholder="Genres..."/>
+            </div>
+          </div>
+          <button class='btn btn-primary' style='margin-top:-4px;min-width:90px;'>Add Artist</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div style='position:relative;height:100%;padding-top:10px;padding-left:10px;overflow-y:auto;'>
+    <div *ngFor="let artist of musicService.getArtists()" style="display:block;float:left;margin-right:10px;margin-bottom:10px;width:240px;height:300px;background:#fff;">
+      <div class='cover-thumb' [class.active]="musicService.selectedArtist != null && artist._id == musicService.selectedArtist._id"
+        style="position:relative;height:240px;background:#fff;border:6px solid rgba(180,180,180,0.5);overflow:hidden;">
+        <img [src]="artist.image == null || artist.image == '' ? '../../assets/images/default_photo.png' : artist.image" alt="" style='width:100%;'>
+        <div class='navigation' style="position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(239,199,0,0.4);color:#fff;padding:4px;padding-top:100px;text-align:center;">
+          <a [routerLink]="['/music/album']" (click)="selected(artist)" class='btn btn-default'>Albums<span style='margin-left:30px;font-weight:normal;'><ng-fa name='angle-right'></ng-fa></span></a>
+        </div>
+      </div>
+      <h4>{{ artist.name }}</h4>
+    </div>
+  </div>
+</div>

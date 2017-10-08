@@ -1,0 +1,6 @@
+<div *ngFor="let request of requests" style='position:relative; padding: 6px; border-bottom: 1px solid #ccc'>
+  <span class='badge' style='float:right;font-weight:400;'><small><ng-fa name="user-circle"></ng-fa>{{ request.username }}</small></span>
+  <strong>{{ request.title }}</strong> <small style='color: #808080'>{{ request.artist }}</small>
+  <br>
+  <span><small style='color:#808080'><ng-fa name="caret-square-o-right"></ng-fa>{{ request.album }}</small></span>
+</div>
